@@ -3,6 +3,11 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
+
+
 android {
     compileSdkVersion 30
 
@@ -42,9 +47,16 @@ dependencies {
     //Lifecycle components
     implementation 'androix.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androix.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androix.lifecycle:lifecycle-lifecycle-common-java:2.2.0'
+    implementation 'androix.lifecycle:lifecycle-common-java8:2.2.0'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-perf-ktx'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
 }
